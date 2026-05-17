@@ -1,0 +1,50 @@
+.time-text{
+    font-family: 'Monomakh'; /* Название из @font-face */
+    /*font-weight: bold;*/
+    font-size: 30px;
+    color: black;
+    text-align: justify;
+}
+.home-icon {
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+}
+@font-face {
+    font-family: 'Monomakh'; /* Даем название шрифту */
+    src: url('ofont.ru_Monomakh Unicode.ttf') format('truetype'); /* Указываем путь к файлу */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Опция для красивого отображения, пока шрифт грузится */
+}
+#textContainer1 {
+    font-family: 'Monomakh'; /* Название из @font-face */
+    color: black;        /* вместо атрибута color */
+    font-size: 50px;    /* вместо атрибута size */
+}
+#textContainer2 {
+    font-family: 'Monomakh'; /* Название из @font-face */
+    color: black;        /* вместо атрибута color */
+    font-size: 40px;    /* вместо атрибута size */
+}
+h1 {
+    text-align: center; 
+}
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* расстояние между ссылками */       /* Выравниваем содержимое по центру */
+}
+
+
+.nav-link:last-child {
+    margin-bottom: 0;           /* У последнего элемента убираем отступ */
+}
+
+.nav-link:hover {
+    color: #0066cc;
+}
+
+

@@ -1,0 +1,124 @@
+<html>
+<head>
+    <title>zemskiysobor1598</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('d724a6a039bda1c6a590.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* ГЛАВНЫЙ КЛАСС ДЛЯ БЛЮРА ФОНА ЗА ТЕКСТОМ */
+        .blur-bg {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            margin: 20px auto;
+            padding: 5px 25px;
+            width: fit-content;
+            max-width: 90%;
+        }
+
+        /* Контейнер для двух картинок */
+        .images-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px auto;
+            max-width: 90%;
+        }
+
+        /* Стиль для каждой картинки */
+        .image-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-item img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Стиль для подписи под картинкой */
+        .caption {
+            margin-top: 12px;
+            font-size: 16px;
+            color: #333;
+            backdrop-filter: blur(5px);
+            background: grey;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Monomakh';
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html"> 
+            <img src="C:\Users\vanya\OneDrive\Рабочий стол\web-site\charming-forest-cabin-oasis-vector-illustration-wooden-cabin-house_772298-65740.avif" alt="Иконка главной страницы" class="home-icon">
+        </a>
+        
+        <div class="blur-bg">
+            <h1 id="textContainer1">Земский собор 1598 года</h1>
+        </div>
+
+        <!-- Текстовый блок -->
+        <div class="blur-bg">
+            <p class="time-text">Земский собор 1598 года стал поворотным моментом русской истории — 
+                впервые в истории страны монарха выбрали, а не унаследовали престол по праву крови. Это событие открыло 
+                период Смутного времени. 6 января 1598 года умер царь Фёдор Иванович, последний представитель династии 
+                Рюриковичей на московском престоле. Он не оставил завещания и наследников. Поскольку прямого наследника не
+                было, для легитимации новой власти потребовалось всенародное одобрение — так был созван Земский собор.
+                Это был один из самых масштабных соборов своего времени. Хотя историки расходятся в подсчетах, всего в его 
+                работе участвовало около 500–600 человек. Главная интрига заключалась в процедуре "умоления" Бориса Годунова 
+                принять корону. По официальной версии (отражавшей интересы Годунова), он отказывался от престола, и народ со 
+                слезами умолял его согласиться. Однако альтернативы были. В исторической литературе упоминаются как минимум четыре кандидатуры:
+
+                Фёдор Никитич Романов (будущий патриарх Филарет) — главный соперник, имевший больше прав на родство с прежней династией.
+
+                Александр Никитич Романов.
+
+                Фёдор Иванович Мстиславский (глава Боярской думы, праправнук Ивана III).
+
+                Патриарх Иов активно продвигал кандидатуру Годунова, аргументируя это тем, что тот фактически управлял страной при недееспособном Фёдоре.
+
+                Ключевое событие произошло 20–22 февраля 1598 года: крестный ход во главе с патриархом и иконами направился в Новодевичий 
+                монастырь, где находился Годунов с сестрой (царицей Ириной). После долгих уговоров (и даже угроз отлучить его от церкви за 
+                упрямство), Борис дал согласие.
+            </p>
+        </div>
+
+        <!-- ДВЕ КАРТИНКИ: слева с подписью, справа без -->
+        <div class="images-container">
+            <!-- Левая картинка с подписью -->
+            <div class="image-item">
+                <img src="C:\Users\vanya\OneDrive\Рабочий стол\web-site\Boris_Godunov's_confirmatory_chapter_(1598,_1620s_copy,_RGB)_by_shakko.jpg">
+                <div class="caption">Утвержденная грамота Земского собора 1598 года об избрании на царство Бориса Федоровича Годунова</div>
+            </div>
+
+            <!-- Правая картинка без подписи -->
+            <div class="image-item">
+                <img src="C:\Users\vanya\OneDrive\Рабочий стол\web-site\Portrait_of_Boris_Godunov.jpg">
+                <div class="caption">Борис Федорович Годунов</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<html>
+<head>
+    <title>The Times of Troubles</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('famine-in-moscow-during-the-time-of-boris-godunov_3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Основной контент растягивается, чтобы прижать footer вниз */
+        .main-content {
+            flex: 1;
+        }
+
+        .title-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            margin: 20px auto;
+            width: fit-content;
+            max-width: 90%;
+        }
+
+        .title-blur h1 {
+            padding: 2px 30px;
+            margin: 0;
+        }
+
+        /* КОНТЕЙНЕР ДЛЯ ЗАГОЛОВКА С ОГНЁМ */
+        .title-with-fire {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* ОБЩИЕ СТИЛИ ДЛЯ ПЛАМЕНИ */
+        .flame {
+            font-size: 45px;
+            display: inline-block;
+            animation-duration: 0.8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 100, 0, 0.8);
+        }
+
+        /* ЛЕВОЕ ПЛАМЯ */
+        .flame-left {
+            animation-name: fireLeft;
+            transform-origin: center bottom;
+        }
+
+        /* ПРАВОЕ ПЛАМЯ */
+        .flame-right {
+            animation-name: fireRight;
+            transform-origin: center bottom;
+        }
+
+        /* Анимация для левого огня */
+        @keyframes fireLeft {
+            0% {
+                transform: scale(1) rotate(-5deg);
+                opacity: 0.7;
+                text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6600;
+            }
+            50% {
+                transform: scale(1.25) rotate(-10deg);
+                opacity: 0.9;
+                text-shadow: 0 0 15px #ff6600, 0 0 25px #ff9900, 0 0 35px #ffcc00;
+            }
+            100% {
+                transform: scale(1) rotate(-5deg);
+                opacity: 0.7;
+                text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6600;
+            }
+        }
+
+        /* Анимация для правого огня */
+        @keyframes fireRight {
+            0% {
+                transform: scale(1) rotate(5deg);
+                opacity: 0.7;
+                text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6600;
+            }
+            50% {
+                transform: scale(1.25) rotate(10deg);
+                opacity: 0.9;
+                text-shadow: 0 0 15px #ff6600, 0 0 25px #ff9900, 0 0 35px #ffcc00;
+            }
+            100% {
+                transform: scale(1) rotate(5deg);
+                opacity: 0.7;
+                text-shadow: 0 0 5px #ff4500, 0 0 10px #ff6600;
+            }
+        }
+
+        /* ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ БОЛЬШЕГО ЭФФЕКТА */
+        .flame-left::before, .flame-right::before {
+            content: "🔥";
+        }
+
+        .title-blur p {
+            padding: 6px 30px;
+            margin: 0;
+        }
+
+        .nav-link {
+            font-family: 'Monomakh', system-ui, -apple-system, sans-serif;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 15px 30px;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            width: 120px;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+            transform: translateY(-2px);
+        }
+
+        .timeline {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 30px auto;
+            max-width: 1300px;
+            padding: 20px;
+            position: relative;
+            margin-top: -15px;
+        }
+
+        .timeline-item {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            width: 170px;
+            min-height: 120px;
+            text-align: center;
+            padding: 15px 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            margin-right: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .timeline-item:hover {
+            background: rgba(100, 150, 255, 0.35);
+            backdrop-filter: blur(12px);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: "➡";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: rgba(255, 215, 0, 0.7);
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+            z-index: 3;
+        }
+
+        .timeline-date {
+            font-size: 22px;
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .timeline-event {
+            font-family: 'Monomakh', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            line-height: 1.4;
+            color: black;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Стили для футера с ссылкой на тест */
+        .test-footer {
+            margin: 40px auto 30px auto;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            width: fit-content;
+            max-width: 90%;
+            padding: 12px 28px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .test-footer p {
+            margin: 0;
+            font-family: 'Monomakh', system-ui, -apple-system, sans-serif;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            letter-spacing: 0.3px;
+        }
+
+        .test-link {
+            display: inline-block;
+            color: #b8860b;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(184, 134, 11, 0.6);
+            transition: all 0.2s ease;
+            margin-left: 5px;
+        }
+
+        .test-link:hover {
+            color: #ffaa33;
+            border-bottom-color: #ffaa33;
+            transform: scale(1.02);
+            text-shadow: 0 0 3px rgba(255, 200, 100, 0.5);
+        }
+
+        /* Адаптив для мобильных */
+        @media (max-width: 700px) {
+            .timeline-item:not(:last-child)::after {
+                display: none;
+            }
+            .timeline-item {
+                margin-right: 15px;
+                margin-bottom: 15px;
+            }
+            .nav-link {
+                padding: 10px 20px;
+                width: 100px;
+                font-size: 14px;
+            }
+            .test-footer p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        .home-icon {
+            max-width: 60px;
+            border-radius: 50%;
+            margin: 15px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .home-icon:hover {
+            transform: scale(1.05);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <div>
+            <a href="index.html"> 
+                <img src="C:\Users\vanya\OneDrive\Рабочий стол\web-site\charming-forest-cabin-oasis-vector-illustration-wooden-cabin-house_772298-65740.avif" alt="Иконка главной страницы" class="home-icon">
+            </a>
+            
+            <!-- ЗАГОЛОВОК С ОГНЁМ -->
+            <div class="title-blur">
+                <div class="title-with-fire">
+                    <span class="flame flame-left"></span>
+                    <h1 id="textContainer1">Смута</h1>
+                    <span class="flame flame-right"></span>
+                </div>
+            </div>
+            
+            <div class="title-blur">
+                <p class="time-text">Смута — один из наиболее значительных династических 
+                    кризисов в царской России, длившийся в период с 1598 года по 1613 год (фактически продолжался до 1619 года), ознаменованный 
+                    стихийными бедствиями, сопровождавшийся многочисленными случаями самозванства
+                    и внешней интервенцией, гражданской, русско-польской и русско-шведской 
+                    войнами, тяжелейшими государственно-политическим и социально-экономическим 
+                    кризисами.</p>
+            </div>
+            
+            <div class="nav-container">
+                <a href="1.html" class="nav-link">Причины</a>
+                <a href="2.html" class="nav-link">Итоги</a>
+                <a href="3.html" class="nav-link">Личности</a>
+            </div>
+            
+            <div class="title-blur">
+                <h1 id="textContainer2">Хронология</h1>
+            </div>
+            
+            <!-- Лента времени -->
+            <div class="timeline">
+                <div class="timeline-item" onclick="location.href='zemskiysobor.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1598</div>
+                    <div class="timeline-event">Земский собор 1598 года</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='golod.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1601-1603</div>
+                    <div class="timeline-event">Великий голод<br>Восстание Хлопка</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='lgedmitri_1.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1604-1606</div>
+                    <div class="timeline-event">Лжедмитрий I</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='Bolotnikov.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1606-1607</div>
+                    <div class="timeline-event">Восстание Болотникова</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='lgedmitri_2.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1607-1610</div>
+                    <div class="timeline-event">Лжедмитрий II</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='interventia.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1609-1610</div>
+                    <div class="timeline-event">Начало польской интервенции</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='rus-shved.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1610-1617</div>
+                    <div class="timeline-event">Русско-шведская война</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='semiboyarschina.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1610-1612</div>
+                    <div class="timeline-event">Семибоярщина</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='opolcheniye_1.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1611</div>
+                    <div class="timeline-event">Первое ополчение</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='opolcheniye_2.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1611-1612</div>
+                    <div class="timeline-event">Второе ополчение</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='zemskiysobor_1613.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1613</div>
+                    <div class="timeline-event">Земский собор 1613 года</div>
+                </div>
+                <div class="timeline-item" onclick="location.href='poslednee.html';" style="cursor: pointer;">
+                    <div class="timeline-date">1613-1619</div>
+                    <div class="timeline-event">Рейд Лисовского<br>Осада Москвы<br>Окончание Смуты</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- НИЖНИЙ БЛОК С ТЕСТОМ -->
+    <div class="test-footer">
+        <p>📚 Свои знания можно проверить, пройдя тест по ссылке: 
+            <a href="https://example.com/test-smuta" class="test-link" target="_blank" rel="noopener noreferrer">👉 Перейти к тесту 👈</a>
+        </p>
+    </div>
+</body>
+</html>

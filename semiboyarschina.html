@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>Semiboyarschina</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('d724a6a039bda1c6a590.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* ГЛАВНЫЙ КЛАСС ДЛЯ БЛЮРА ФОНА ЗА ТЕКСТОМ */
+        .blur-bg {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            margin: 20px auto;
+            padding: 5px 25px;
+            width: fit-content;
+            max-width: 90%;
+        }
+
+        /* Контейнер для двух картинок */
+        .images-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px auto;
+            max-width: 90%;
+        }
+
+        /* Стиль для каждой картинки */
+        .image-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-item img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Стиль для подписи под картинкой */
+        .caption {
+            margin-top: 12px;
+            font-size: 16px;
+            color: #333;
+            backdrop-filter: blur(5px);
+            background: grey;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Monomakh';
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html"> 
+            <img src="C:\Users\vanya\OneDrive\Рабочий стол\web-site\charming-forest-cabin-oasis-vector-illustration-wooden-cabin-house_772298-65740.avif" alt="Иконка главной страницы" class="home-icon">
+        </a>
+        
+        <div class="blur-bg">
+            <h1 id="textContainer1">Семибоярщина</h1>
+        </div>
+
+        <!-- Текстовый блок -->
+        <div class="blur-bg">
+            <p class="time-text">Поражение войск Дмитрия Шуйского от поляков под Клушиным, а также повторное появление Лжедмитрия II под Москвой, окончательно подорвало шаткий авторитет «боярского царя», и в этих условиях в Москве произошёл переворот. В результате боярского заговора Василий Шуйский был смещён. К власти пришёл совет из семи бояр — Семибоярщина, которые признали русским царём польского королевича Владислава.
+
+Однако многие города и сёла не признали царём католического королевича и присягнули Лжедмитрию II, в том числе ранее упорно боровшиеся с ним: Коломна, Кашира, Суздаль, Галич и Владимир.
+
+Реальная угроза со стороны самозванца вынудила Семибоярщину в ночь с 20—21 сентября впустить в столицу польско-литовские войска, чтобы отразить «вора». Но самозванец, предупреждённый доброжелателями, покинул Коломенский лагерь и вернулся в Калугу.
+Грабежи и насилия, совершаемые польско-литовскими отрядами в русских городах, а также межрелигиозные противоречия между католицизмом и православием вызвали неприятие польского господства — на северо-западе и на востоке ряд русских городов «сели в осаду» и отказывались признавать Владислава русским царём, присягая на верность Лжедмитрию II. В сентябре 1610 года отряды самозванца освободили от польского владычества Козельск, Мещовск, Почеп и Стародуб. В начале декабря Лжедмитрий II разбил войска гетмана Сапеги. Но 11 (21) декабря 1610 в результате ссоры самозванец был убит татарской стражей.
+
+В стране началось национально-освободительное движение, которое способствовало образованию Первого и Второго ополчения.</p>
+        </div>
+
+         <!-- ДВЕ КАРТИНКИ: слева с подписью, справа без -->
+        <div class="images-container">
+            <!-- Левая картинка с подписью -->
+            <div class="image-item">
+                <img src="C:\Users\vanya\OneDrive\Рабочий стол\web-site\Nevrev_Zakhary_Lyapunov's_quarrel_with_the_Tsar.jpg">
+                <div class="caption">Свержение Василия Шуйского</div>
+            </div>
+
+            <!-- Правая картинка без подписи -->
+            <div class="image-item">
+                <img src="C:\Users\vanya\OneDrive\Рабочий стол\web-site\Dolabella_Shuysky_Czars_before_Sigismund_III.png">
+                <div class="caption">Присяга Шуйских королю Сигизмунду III в Варшаве</div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

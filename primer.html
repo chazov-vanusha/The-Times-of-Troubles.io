@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка файлов</title>
+    <style>
+        .file-list {
+            margin-top: 20px;
+        }
+        .file-item {
+            margin: 5px 0;
+        }
+        img {
+            max-width: 100px; /* Ограничиваем ширину изображений */
+            margin-left: 10px; /* Отступ для изображений */
+        }
+    </style>
+</head>
+<body>
+
+<form name="forma4" class="input-container4">
+    <label for="fileInput">Выбирайте файл: </label>
+    <input type="file" id="fileInput" name="load" size="30" multiple>
+</form>
+
+<div class="file-list" id="fileList"></div>
+
+<script>
+    // Получаем элементы
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+
+    // Функция для отображения загруженных файлов
+    function displayFiles() {
+        // Очищаем список перед добавлением новых файлов
+        fileList.innerHTML = '';
+
+        // Получаем выбранные файлы
+        const files = fileInput.files;
+
+        // Проверяем, есть ли файлы
+        if (files.length > 0) {
+            // Проходим по каждому файлу
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const listItem = document.createElement('div');
+                listItem.className = 'file-item';
+                listItem.textContent = Файл: ${file.name} (${(file.size / 1024).toFixed(2)} KB);
+
+                // Если файл изображение, создаем превью
+                if (file.type.startsWith('image/')) {
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(file);
+                    listItem.appendChild(img);
+                }
+
+                // Добавляем элемент в список
+                fileList.appendChild(listItem);
+            }
+        } else {
+            fileList.textContent = 'Нет загруженных файлов.';
+        }
+    }
+
+    // Добавляем обработчик события 'change' для элемента input
+    fileInput.addEventListener('change', displayFiles);
+</script>
+
+</body>
+</html>
